@@ -174,7 +174,7 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         if (null != getLoadingTargetView()) {
             mVaryViewHelperController = new VaryViewHelperController(getLoadingTargetView());
         }
@@ -211,7 +211,6 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.reset(this);
         NetStateReceiver.removeRegisterObserver(mNetChangeObserver);
         if (isBindEventBusHere()) {
             EventBus.getDefault().unregister(this);

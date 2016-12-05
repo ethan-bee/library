@@ -170,7 +170,7 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         if (null != getLoadingTargetView()) {
             mVaryViewHelperController = new VaryViewHelperController(getLoadingTargetView());
         }
@@ -207,7 +207,6 @@ public abstract class BaseFragmentActivity extends FragmentActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ButterKnife.reset(this);
         NetStateReceiver.removeRegisterObserver(mNetChangeObserver);
         if (isBindEventBusHere()) {
             EventBus.getDefault().unregister(this);
