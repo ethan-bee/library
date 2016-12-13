@@ -136,7 +136,8 @@ public abstract class BaseAppCompatActivity extends AppCompatActivity {
         if (getContentViewLayoutID() != 0) {
             setContentView(getContentViewLayoutID());
         } else {
-            throw new IllegalArgumentException("You must return a right contentView layout resource Id");
+            return;
+           // throw new IllegalArgumentException("You must return a right contentView layout resource Id");
         }
 
         mNetChangeObserver = new NetChangeObserver() {
