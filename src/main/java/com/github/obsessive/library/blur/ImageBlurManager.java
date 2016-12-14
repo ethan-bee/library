@@ -32,6 +32,8 @@ public class ImageBlurManager {
             return (null);
         }
 
+
+
         int w = bitmap.getWidth();
         int h = bitmap.getHeight();
 
